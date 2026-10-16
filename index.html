@@ -1,0 +1,1597 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BrightSmile Dental | Premium Dental Care & Cosmetic Dentistry</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            50: '#f0fdfa',
+                            100: '#ccfbf1',
+                            200: '#99f6e4',
+                            500: '#14b8a6',
+                            600: '#0d9488',
+                            700: '#0f766e',
+                            800: '#115e59',
+                            900: '#134e4a',
+                        },
+                        navy: {
+                            800: '#0f172a',
+                            900: '#020617',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- FontAwesome Icons CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        .clip-path-hero {
+            clip-path: polygon(0 0, 100% 0, 100% 88%, 0 100%);
+        }
+        /* Custom scrollbar */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #f1f5f9; }
+        ::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #94a3b8; }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 flex flex-col min-h-screen">
+
+    <!-- TOP EMERGENCY & INFO BAR -->
+    <div class="bg-brand-900 text-teal-100 text-xs sm:text-sm py-2 px-4 shadow-inner">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-2">
+            <div class="flex items-center space-x-6 flex-wrap justify-center">
+                <span class="flex items-center gap-2"><i class="fa-solid fa-phone text-teal-400"></i> <strong>Emergency:</strong> (555) 911-SMILE</span>
+                <span class="hidden sm:flex items-center gap-2"><i class="fa-solid fa-clock text-teal-400"></i> Mon-Fri: 8:00 AM - 7:00 PM | Sat: 9:00 AM - 3:00 PM</span>
+                <span class="hidden lg:flex items-center gap-2"><i class="fa-solid fa-location-dot text-teal-400"></i> 124 Medical Plaza, Suite 400, NY</span>
+            </div>
+            <div class="flex items-center gap-4">
+                <span class="text-xs bg-brand-700/60 px-2 py-0.5 rounded text-teal-200"><i class="fa-solid fa-shield-halved text-teal-300 mr-1"></i> Most Insurances Accepted</span>
+                <div class="flex gap-3 text-sm">
+                    <a href="#" class="hover:text-white transition"><i class="fa-brands fa-facebook"></i></a>
+                    <a href="#" class="hover:text-white transition"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="#" class="hover:text-white transition"><i class="fa-brands fa-google"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- MAIN NAVBAR -->
+    <header class="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-slate-100 shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <!-- LOGO -->
+                <a href="#" onclick="navigateTo('home'); return false;" class="flex items-center space-x-3 group">
+                    <div class="w-12 h-12 bg-gradient-to-tr from-brand-600 to-teal-400 rounded-2xl flex items-center justify-center text-white shadow-md shadow-brand-500/20 group-hover:scale-105 transition-transform">
+                        <i class="fa-solid fa-tooth text-2xl"></i>
+                    </div>
+                    <div>
+                        <span class="text-2xl font-extrabold tracking-tight text-slate-900 block leading-tight">Bright<span class="text-brand-600">Smile</span></span>
+                        <span class="text-xs font-semibold text-slate-400 tracking-wider uppercase">Dental & Implant Center</span>
+                    </div>
+                </a>
+
+                <!-- DESKTOP NAVIGATION LINKS -->
+                <nav class="hidden lg:flex items-center space-x-1 font-medium text-slate-600">
+                    <button onclick="navigateTo('home')" class="nav-btn px-3.5 py-2 rounded-lg hover:text-brand-600 hover:bg-slate-50 transition" data-page="home">Home</button>
+                    <button onclick="navigateTo('about')" class="nav-btn px-3.5 py-2 rounded-lg hover:text-brand-600 hover:bg-slate-50 transition" data-page="about">About Us</button>
+                    <button onclick="navigateTo('services')" class="nav-btn px-3.5 py-2 rounded-lg hover:text-brand-600 hover:bg-slate-50 transition" data-page="services">Services</button>
+                    <button onclick="navigateTo('doctors')" class="nav-btn px-3.5 py-2 rounded-lg hover:text-brand-600 hover:bg-slate-50 transition" data-page="doctors">Dentists</button>
+                    <button onclick="navigateTo('patient-info')" class="nav-btn px-3.5 py-2 rounded-lg hover:text-brand-600 hover:bg-slate-50 transition" data-page="patient-info">Cost & FAQ</button>
+                    <button onclick="navigateTo('contact')" class="nav-btn px-3.5 py-2 rounded-lg hover:text-brand-600 hover:bg-slate-50 transition" data-page="contact">Contact</button>
+                </nav>
+
+                <!-- ACTION BUTTON -->
+                <div class="hidden sm:flex items-center space-x-3">
+                    <button onclick="openBookingModal()" class="bg-gradient-to-r from-brand-600 to-brand-500 hover:from-brand-700 hover:to-brand-600 text-white font-semibold px-5 py-2.5 rounded-xl shadow-lg shadow-brand-500/25 hover:shadow-brand-500/40 transition-all flex items-center gap-2 group">
+                        <i class="fa-regular fa-calendar-check group-hover:scale-110 transition-transform"></i>
+                        Book Appointment
+                    </button>
+                </div>
+
+                <!-- MOBILE HAMBURGER MENU BUTTON -->
+                <div class="flex lg:hidden items-center">
+                    <button id="mobileMenuBtn" onclick="toggleMobileMenu()" class="text-slate-600 hover:text-slate-900 focus:outline-none p-2 rounded-lg hover:bg-slate-100">
+                        <i class="fa-solid fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- MOBILE MENU DROPDOWN -->
+        <div id="mobileMenu" class="hidden lg:hidden border-b border-slate-200 bg-white px-4 pt-2 pb-6 space-y-2 shadow-lg">
+            <button onclick="navigateTo('home'); toggleMobileMenu();" class="block w-full text-left px-4 py-2.5 rounded-lg text-slate-700 hover:bg-brand-50 hover:text-brand-600 font-medium">Home</button>
+            <button onclick="navigateTo('about'); toggleMobileMenu();" class="block w-full text-left px-4 py-2.5 rounded-lg text-slate-700 hover:bg-brand-50 hover:text-brand-600 font-medium">About Us</button>
+            <button onclick="navigateTo('services'); toggleMobileMenu();" class="block w-full text-left px-4 py-2.5 rounded-lg text-slate-700 hover:bg-brand-50 hover:text-brand-600 font-medium">Services & Procedures</button>
+            <button onclick="navigateTo('doctors'); toggleMobileMenu();" class="block w-full text-left px-4 py-2.5 rounded-lg text-slate-700 hover:bg-brand-50 hover:text-brand-600 font-medium">Meet the Team</button>
+            <button onclick="navigateTo('patient-info'); toggleMobileMenu();" class="block w-full text-left px-4 py-2.5 rounded-lg text-slate-700 hover:bg-brand-50 hover:text-brand-600 font-medium">Patient Info & Cost Calculator</button>
+            <button onclick="navigateTo('contact'); toggleMobileMenu();" class="block w-full text-left px-4 py-2.5 rounded-lg text-slate-700 hover:bg-brand-50 hover:text-brand-600 font-medium">Contact & Location</button>
+            <div class="pt-2">
+                <button onclick="openBookingModal(); toggleMobileMenu();" class="w-full bg-brand-600 text-white font-semibold py-3 rounded-xl shadow-md text-center flex items-center justify-center gap-2">
+                    <i class="fa-regular fa-calendar-check"></i> Book Appointment Now
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- CONTAINER FOR DYNAMIC PAGE CONTENT -->
+    <main id="app" class="flex-grow">
+        <!-- PAGES WILL BE RENDERED HERE VIA JAVASCRIPT -->
+    </main>
+
+    <!-- GLOBAL FOOTER -->
+    <footer class="bg-slate-900 text-slate-300 pt-16 pb-8 border-t border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 pb-12 border-b border-slate-800">
+                <!-- Col 1: Clinic Bio -->
+                <div class="lg:col-span-2">
+                    <div class="flex items-center space-x-3 mb-4">
+                        <div class="w-10 h-10 bg-brand-600 rounded-xl flex items-center justify-center text-white">
+                            <i class="fa-solid fa-tooth text-xl"></i>
+                        </div>
+                        <span class="text-2xl font-bold text-white">BrightSmile Dental</span>
+                    </div>
+                    <p class="text-slate-400 mb-6 text-sm leading-relaxed max-w-sm">
+                        Delivering world-class dental care with compassion, state-of-the-art technology, and a pain-free guarantee. Transforming smiles with precision for over 15 years.
+                    </p>
+                    <div class="flex space-x-3">
+                        <a href="#" class="w-9 h-9 bg-slate-800 hover:bg-brand-600 text-slate-300 hover:text-white rounded-lg flex items-center justify-center transition"><i class="fa-brands fa-facebook-f"></i></a>
+                        <a href="#" class="w-9 h-9 bg-slate-800 hover:bg-brand-600 text-slate-300 hover:text-white rounded-lg flex items-center justify-center transition"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="#" class="w-9 h-9 bg-slate-800 hover:bg-brand-600 text-slate-300 hover:text-white rounded-lg flex items-center justify-center transition"><i class="fa-brands fa-x-twitter"></i></a>
+                        <a href="#" class="w-9 h-9 bg-slate-800 hover:bg-brand-600 text-slate-300 hover:text-white rounded-lg flex items-center justify-center transition"><i class="fa-brands fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+
+                <!-- Col 2: Quick Links -->
+                <div>
+                    <h3 class="text-white font-semibold mb-4 text-base tracking-wide">Quick Links</h3>
+                    <ul class="space-y-2.5 text-sm">
+                        <li><a href="#" onclick="navigateTo('home'); return false;" class="hover:text-brand-400 transition">Home</a></li>
+                        <li><a href="#" onclick="navigateTo('about'); return false;" class="hover:text-brand-400 transition">About Our Clinic</a></li>
+                        <li><a href="#" onclick="navigateTo('doctors'); return false;" class="hover:text-brand-400 transition">Meet Dentists</a></li>
+                        <li><a href="#" onclick="navigateTo('patient-info'); return false;" class="hover:text-brand-400 transition">Cost Calculator</a></li>
+                        <li><a href="#" onclick="navigateTo('contact'); return false;" class="hover:text-brand-400 transition">Contact Us</a></li>
+                    </ul>
+                </div>
+
+                <!-- Col 3: Services -->
+                <div>
+                    <h3 class="text-white font-semibold mb-4 text-base tracking-wide">Treatments</h3>
+                    <ul class="space-y-2.5 text-sm">
+                        <li><a href="#" onclick="navigateTo('services'); return false;" class="hover:text-brand-400 transition">Dental Implants</a></li>
+                        <li><a href="#" onclick="navigateTo('services'); return false;" class="hover:text-brand-400 transition">Invisalign Aligners</a></li>
+                        <li><a href="#" onclick="navigateTo('services'); return false;" class="hover:text-brand-400 transition">Laser Teeth Whitening</a></li>
+                        <li><a href="#" onclick="navigateTo('services'); return false;" class="hover:text-brand-400 transition">Root Canal Therapy</a></li>
+                        <li><a href="#" onclick="navigateTo('services'); return false;" class="hover:text-brand-400 transition">Pediatric Dentistry</a></li>
+                    </ul>
+                </div>
+
+                <!-- Col 4: Working Hours -->
+                <div>
+                    <h3 class="text-white font-semibold mb-4 text-base tracking-wide">Clinic Hours</h3>
+                    <ul class="space-y-2 text-xs text-slate-400">
+                        <li class="flex justify-between py-1 border-b border-slate-800"><span>Mon - Thu:</span> <span class="text-slate-200">8:00 AM - 7:00 PM</span></li>
+                        <li class="flex justify-between py-1 border-b border-slate-800"><span>Friday:</span> <span class="text-slate-200">8:00 AM - 6:00 PM</span></li>
+                        <li class="flex justify-between py-1 border-b border-slate-800"><span>Saturday:</span> <span class="text-slate-200">9:00 AM - 3:00 PM</span></li>
+                        <li class="flex justify-between py-1"><span>Sunday:</span> <span class="text-amber-400 font-medium">Emergency Only</span></li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Bottom Copyright -->
+            <div class="pt-8 flex flex-col sm:flex-row justify-between items-center text-xs text-slate-500 gap-4">
+                <p>&copy; 2026 BrightSmile Dental Care. All Rights Reserved. Designed for Excellence.</p>
+                <div class="flex space-x-6">
+                    <a href="#" class="hover:text-slate-400">Privacy Policy</a>
+                    <a href="#" class="hover:text-slate-400">Terms of Service</a>
+                    <a href="#" class="hover:text-slate-400">HIPAA Compliance</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- MODAL: TREATMENT DETAILS -->
+    <div id="serviceModal" class="fixed inset-0 bg-slate-900/60 backdrop-blur-sm z-50 flex items-center justify-center p-4 hidden transition-opacity">
+        <div class="bg-white rounded-3xl max-w-2xl w-full max-h-[90vh] overflow-y-auto shadow-2xl relative border border-slate-100 transform transition-transform">
+            <button onclick="closeServiceModal()" class="absolute top-5 right-5 text-slate-400 hover:text-slate-700 w-10 h-10 rounded-full bg-slate-100 flex items-center justify-center transition">
+                <i class="fa-solid fa-xmark text-lg"></i>
+            </button>
+            <div id="serviceModalContent" class="p-6 sm:p-8">
+                <!-- Dynamic Content Loaded via JS -->
+            </div>
+        </div>
+    </div>
+
+    <!-- MODAL: ONLINE APPOINTMENT BOOKING SYSTEM -->
+    <div id="bookingModal" class="fixed inset-0 bg-slate-900/70 backdrop-blur-sm z-50 flex items-center justify-center p-3 sm:p-4 hidden">
+        <div class="bg-white rounded-3xl max-w-3xl w-full max-h-[92vh] overflow-y-auto shadow-2xl relative border border-slate-100 flex flex-col">
+            <!-- Modal Header -->
+            <div class="p-6 border-b border-slate-100 flex justify-between items-center bg-slate-50/50 rounded-t-3xl">
+                <div>
+                    <h3 class="text-xl font-bold text-slate-900">Book Your Dental Visit</h3>
+                    <p class="text-xs text-slate-500">Instant confirmation in 3 simple steps</p>
+                </div>
+                <button onclick="closeBookingModal()" class="text-slate-400 hover:text-slate-700 w-9 h-9 rounded-full bg-slate-200/60 flex items-center justify-center transition">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+
+            <!-- Booking Stepper Progress -->
+            <div class="px-6 pt-4 pb-2 bg-slate-50 border-b border-slate-100">
+                <div class="flex items-center justify-between max-w-md mx-auto relative">
+                    <!-- Progress Line -->
+                    <div class="absolute top-1/2 left-0 right-0 h-0.5 bg-slate-200 -translate-y-1/2 z-0"></div>
+                    <div id="stepLine" class="absolute top-1/2 left-0 h-0.5 bg-brand-600 -translate-y-1/2 z-0 transition-all duration-300" style="width: 0%;"></div>
+
+                    <!-- Step 1 Indicator -->
+                    <div class="relative z-10 flex flex-col items-center">
+                        <div id="stepDot1" class="w-8 h-8 rounded-full bg-brand-600 text-white font-semibold flex items-center justify-center text-xs shadow-md">1</div>
+                        <span class="text-[10px] font-medium text-slate-600 mt-1">Service & Doctor</span>
+                    </div>
+
+                    <!-- Step 2 Indicator -->
+                    <div class="relative z-10 flex flex-col items-center">
+                        <div id="stepDot2" class="w-8 h-8 rounded-full bg-slate-200 text-slate-600 font-semibold flex items-center justify-center text-xs">2</div>
+                        <span class="text-[10px] font-medium text-slate-500 mt-1">Date & Time</span>
+                    </div>
+
+                    <!-- Step 3 Indicator -->
+                    <div class="relative z-10 flex flex-col items-center">
+                        <div id="stepDot3" class="w-8 h-8 rounded-full bg-slate-200 text-slate-600 font-semibold flex items-center justify-center text-xs">3</div>
+                        <span class="text-[10px] font-medium text-slate-500 mt-1">Your Info</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Modal Form Body -->
+            <div class="p-6 sm:p-8 flex-grow">
+                <form id="bookingForm" onsubmit="handleBookingSubmit(event)">
+                    <!-- STEP 1: SERVICE & DOCTOR -->
+                    <div id="bookingStep1" class="space-y-5">
+                        <h4 class="font-semibold text-slate-800 text-base flex items-center gap-2">
+                            <i class="fa-solid fa-notes-medical text-brand-600"></i> Select Procedure & Dentist
+                        </h4>
+                        <div>
+                            <label class="block text-xs font-semibold text-slate-700 uppercase tracking-wider mb-2">Select Primary Service *</label>
+                            <select id="bookService" required class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:ring-2 focus:ring-brand-500 focus:border-brand-500 outline-none transition bg-slate-50/50">
+                                <option value=""> Choose a treatment... </option>
+                                <option value="General Consultation & Cleaning">General Cleaning & Examination ($120)</option>
+                                <option value="Teeth Whitening">Laser Teeth Whitening ($350)</option>
+                                <option value="Dental Implant Consultation">Dental Implant Consultation ($150)</option>
+                                <option value="Invisalign & Orthodontics">Invisalign Evaluation ($100)</option>
+                                <option value="Root Canal Treatment">Root Canal Therapy ($600 - $900)</option>
+                                <option value="Emergency Dental Care">Emergency Pain Relief ($150)</option>
+                                <option value="Pediatric Checkup">Pediatric Dental Checkup ($100)</option>
+                            </select>
+                        </div>
+
+                        <div>
+                            <label class="block text-xs font-semibold text-slate-700 uppercase tracking-wider mb-2">Select Preferred Doctor</label>
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3" id="doctorSelectGrid">
+                                <!-- Rendered dynamically or standard radios -->
+                                <label class="border border-slate-200 p-3 rounded-xl flex items-center space-x-3 cursor-pointer hover:border-brand-500 has-[:checked]:border-brand-600 has-[:checked]:bg-brand-50/40 transition">
+                                    <input type="radio" name="doctor" value="Dr. Sarah Jenkins" checked class="text-brand-600 focus:ring-brand-500">
+                                    <div>
+                                        <div class="font-semibold text-slate-800 text-sm">Dr. Sarah Jenkins</div>
+                                        <div class="text-xs text-slate-500">Cosmetic & Implants</div>
+                                    </div>
+                                </label>
+                                <label class="border border-slate-200 p-3 rounded-xl flex items-center space-x-3 cursor-pointer hover:border-brand-500 has-[:checked]:border-brand-600 has-[:checked]:bg-brand-50/40 transition">
+                                    <input type="radio" name="doctor" value="Dr. Michael Chen" class="text-brand-600 focus:ring-brand-500">
+                                    <div>
+                                        <div class="font-semibold text-slate-800 text-sm">Dr. Michael Chen</div>
+                                        <div class="text-xs text-slate-500">Orthodontist (Invisalign)</div>
+                                    </div>
+                                </label>
+                                <label class="border border-slate-200 p-3 rounded-xl flex items-center space-x-3 cursor-pointer hover:border-brand-500 has-[:checked]:border-brand-600 has-[:checked]:bg-brand-50/40 transition">
+                                    <input type="radio" name="doctor" value="Dr. Emily Rodriguez" class="text-brand-600 focus:ring-brand-500">
+                                    <div>
+                                        <div class="font-semibold text-slate-800 text-sm">Dr. Emily Rodriguez</div>
+                                        <div class="text-xs text-slate-500">Pediatric Specialist</div>
+                                    </div>
+                                </label>
+                                <label class="border border-slate-200 p-3 rounded-xl flex items-center space-x-3 cursor-pointer hover:border-brand-500 has-[:checked]:border-brand-600 has-[:checked]:bg-brand-50/40 transition">
+                                    <input type="radio" name="doctor" value="Any Available Specialist" class="text-brand-600 focus:ring-brand-500">
+                                    <div>
+                                        <div class="font-semibold text-slate-800 text-sm">First Available Dentist</div>
+                                        <div class="text-xs text-slate-500">Earliest Availability</div>
+                                    </div>
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="pt-4 flex justify-end">
+                            <button type="button" onclick="goToBookingStep(2)" class="bg-brand-600 hover:bg-brand-700 text-white font-semibold px-6 py-2.5 rounded-xl shadow-md transition flex items-center gap-2">
+                                Next Step <i class="fa-solid fa-arrow-right text-xs"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- STEP 2: DATE & TIME -->
+                    <div id="bookingStep2" class="space-y-5 hidden">
+                        <h4 class="font-semibold text-slate-800 text-base flex items-center gap-2">
+                            <i class="fa-regular fa-clock text-brand-600"></i> Choose Date & Time Slot
+                        </h4>
+
+                        <div>
+                            <label class="block text-xs font-semibold text-slate-700 uppercase tracking-wider mb-2">Preferred Date *</label>
+                            <input type="date" id="bookDate" required class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:ring-2 focus:ring-brand-500 outline-none bg-slate-50/50">
+                        </div>
+
+                        <div>
+                            <label class="block text-xs font-semibold text-slate-700 uppercase tracking-wider mb-2">Available Time Slots *</label>
+                            <div class="grid grid-cols-3 sm:grid-cols-4 gap-2.5" id="timeSlotsGrid">
+                                <!-- Dynamic slots rendered via JS -->
+                            </div>
+                        </div>
+
+                        <div class="pt-4 flex justify-between">
+                            <button type="button" onclick="goToBookingStep(1)" class="px-5 py-2.5 border border-slate-200 text-slate-600 font-semibold rounded-xl hover:bg-slate-100 transition">Back</button>
+                            <button type="button" onclick="goToBookingStep(3)" class="bg-brand-600 hover:bg-brand-700 text-white font-semibold px-6 py-2.5 rounded-xl shadow-md transition flex items-center gap-2">
+                                Next: Patient Info <i class="fa-solid fa-arrow-right text-xs"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- STEP 3: PATIENT INFORMATION -->
+                    <div id="bookingStep3" class="space-y-5 hidden">
+                        <h4 class="font-semibold text-slate-800 text-base flex items-center gap-2">
+                            <i class="fa-regular fa-user text-brand-600"></i> Patient Details
+                        </h4>
+
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <div>
+                                <label class="block text-xs font-semibold text-slate-700 uppercase tracking-wider mb-1">Full Name *</label>
+                                <input type="text" id="bookName" placeholder="e.g. John Doe" required class="w-full px-4 py-2.5 rounded-xl border border-slate-200 focus:ring-2 focus:ring-brand-500 outline-none">
+                            </div>
+                            <div>
+                                <label class="block text-xs font-semibold text-slate-700 uppercase tracking-wider mb-1">Phone Number *</label>
+                                <input type="tel" id="bookPhone" placeholder="(555) 000-0000" required class="w-full px-4 py-2.5 rounded-xl border border-slate-200 focus:ring-2 focus:ring-brand-500 outline-none">
+                            </div>
+                        </div>
+
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <div>
+                                <label class="block text-xs font-semibold text-slate-700 uppercase tracking-wider mb-1">Email Address *</label>
+                                <input type="email" id="bookEmail" placeholder="john@example.com" required class="w-full px-4 py-2.5 rounded-xl border border-slate-200 focus:ring-2 focus:ring-brand-500 outline-none">
+                            </div>
+                            <div>
+                                <label class="block text-xs font-semibold text-slate-700 uppercase tracking-wider mb-1">Patient Status</label>
+                                <select id="bookStatus" class="w-full px-4 py-2.5 rounded-xl border border-slate-200 focus:ring-2 focus:ring-brand-500 outline-none bg-white">
+                                    <option value="New Patient">New Patient (First Visit)</option>
+                                    <option value="Returning Patient">Existing Patient</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div>
+                            <label class="block text-xs font-semibold text-slate-700 uppercase tracking-wider mb-1">Notes or Specific Dental Concerns</label>
+                            <textarea id="bookNotes" rows="2" placeholder="Describe tooth pain, sensitivity, cosmetic goals, or anxiety level..." class="w-full px-4 py-2.5 rounded-xl border border-slate-200 focus:ring-2 focus:ring-brand-500 outline-none"></textarea>
+                        </div>
+
+                        <div class="pt-4 flex justify-between">
+                            <button type="button" onclick="goToBookingStep(2)" class="px-5 py-2.5 border border-slate-200 text-slate-600 font-semibold rounded-xl hover:bg-slate-100 transition">Back</button>
+                            <button type="submit" class="bg-emerald-600 hover:bg-emerald-700 text-white font-bold px-7 py-3 rounded-xl shadow-lg shadow-emerald-600/30 transition flex items-center gap-2">
+                                <i class="fa-solid fa-check-circle"></i> Confirm Appointment
+                            </button>
+                        </div>
+                    </div>
+                </form>
+
+                <!-- STEP 4: CONFIRMATION VIEW -->
+                <div id="bookingConfirmation" class="hidden text-center py-6 space-y-6">
+                    <div class="w-16 h-16 bg-emerald-100 text-emerald-600 rounded-full flex items-center justify-center mx-auto text-3xl shadow-inner">
+                        <i class="fa-solid fa-check"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-2xl font-bold text-slate-900">Appointment Confirmed!</h3>
+                        <p class="text-slate-500 text-sm mt-1">We look forward to seeing your smile. A confirmation email has been sent.</p>
+                    </div>
+
+                    <div class="bg-slate-50 rounded-2xl p-6 text-left max-w-md mx-auto border border-slate-200/80 space-y-3 text-sm">
+                        <div class="flex justify-between border-b border-slate-200/60 pb-2">
+                            <span class="text-slate-500">Booking Reference:</span>
+                            <span class="font-mono font-bold text-slate-800" id="confRef">#BS-9823</span>
+                        </div>
+                        <div class="flex justify-between border-b border-slate-200/60 pb-2">
+                            <span class="text-slate-500">Service:</span>
+                            <span class="font-semibold text-slate-800" id="confService">-</span>
+                        </div>
+                        <div class="flex justify-between border-b border-slate-200/60 pb-2">
+                            <span class="text-slate-500">Dentist:</span>
+                            <span class="font-semibold text-slate-800" id="confDoctor">-</span>
+                        </div>
+                        <div class="flex justify-between border-b border-slate-200/60 pb-2">
+                            <span class="text-slate-500">Date & Time:</span>
+                            <span class="font-semibold text-brand-700" id="confDateTime">-</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span class="text-slate-500">Patient:</span>
+                            <span class="font-semibold text-slate-800" id="confName">-</span>
+                        </div>
+                    </div>
+
+                    <div class="flex justify-center gap-3 pt-2">
+                        <button onclick="downloadAppointmentSummary()" class="px-5 py-2.5 bg-slate-100 hover:bg-slate-200 text-slate-700 font-semibold rounded-xl text-xs flex items-center gap-2">
+                            <i class="fa-solid fa-calendar-plus"></i> Add to Calendar
+                        </button>
+                        <button onclick="closeBookingModal()" class="px-6 py-2.5 bg-brand-600 hover:bg-brand-700 text-white font-semibold rounded-xl text-xs shadow-md">
+                            Done
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- TOAST NOTIFICATION CONTAINER -->
+    <div id="toast" class="fixed bottom-5 right-5 z-50 transform translate-y-20 opacity-0 transition-all duration-300 pointer-events-none bg-slate-900 text-white px-5 py-3.5 rounded-2xl shadow-2xl flex items-center gap-3 border border-slate-700">
+        <i id="toastIcon" class="fa-solid fa-circle-check text-emerald-400 text-lg"></i>
+        <span id="toastMsg" class="text-sm font-medium">Notification message</span>
+    </div>
+
+    <!-- MAIN APPLICATION JAVASCRIPT LOGIC -->
+    <script>
+        // DATA STORES
+        const doctorsData = [
+            {
+                id: 'dr-jenkins',
+                name: 'Dr. Sarah Jenkins, DDS',
+                role: 'Lead Cosmetic & Implant Specialist',
+                experience: '16+ Years Experience',
+                bio: 'Specializing in full-mouth restorations, porcelain veneers, and precision implants. Graduated with honors from Columbia University Dental Medicine.',
+                img: 'https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&fit=crop&w=600&q=80',
+                specialties: ['Dental Implants', 'Cosmetic Veneers', 'Smile Makeovers'],
+                education: 'DDS - Columbia University'
+            },
+            {
+                id: 'dr-chen',
+                name: 'Dr. Michael Chen, DMD',
+                role: 'Orthodontics & Invisalign Master',
+                experience: '12+ Years Experience',
+                bio: 'Premier Invisalign provider having transformed over 2,000 adult and teenager smiles using modern clear alignment protocols.',
+                img: 'https://images.unsplash.com/photo-1622253692010-333f2da6031d?auto=format&fit=crop&w=600&q=80',
+                specialties: ['Invisalign Aligners', 'Traditional Braces', 'Bite Correction'],
+                education: 'DMD - UPenn Dental'
+            },
+            {
+                id: 'dr-rodriguez',
+                name: 'Dr. Emily Rodriguez, DDS',
+                role: 'Pediatric & Family Dentist',
+                experience: '10+ Years Experience',
+                bio: 'Dedicated to providing gentle, fear-free dental visits for kids and teenagers. Expert in early orthodontic intercept and preventative care.',
+                img: 'https://images.unsplash.com/photo-1594824813566-78a933758f46?auto=format&fit=crop&w=600&q=80',
+                specialties: ['Pediatric Care', 'Dental Sealants', 'Gentle Cleanings'],
+                education: 'DDS - UCLA School of Dentistry'
+            },
+            {
+                id: 'dr-vance',
+                name: 'Dr. Marcus Vance, MS, DDS',
+                role: 'Endodontics & Periodontist',
+                experience: '14+ Years Experience',
+                bio: 'Specialist in microscopic root canals, gum health regeneration, and surgical extractions with ultra-painless computer-controlled sedation.',
+                img: 'https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?auto=format&fit=crop&w=600&q=80',
+                specialties: ['Pain-Free Root Canals', 'Gum Surgery', 'Wisdom Teeth'],
+                education: 'MS Endodontics - Harvard'
+            }
+        ];
+
+        const servicesData = [
+            {
+                id: 'cleanings',
+                category: 'preventive',
+                title: 'Preventive Care & Cleanings',
+                icon: 'fa-tooth',
+                shortDesc: 'Comprehensive exams, digital low-radiation X-rays, and ultrasonic hygiene cleanings to preserve natural teeth.',
+                costRange: '$120 - $250',
+                duration: '45 - 60 Mins',
+                recovery: 'Immediate',
+                fullDesc: 'Preventive dentistry is the foundation of long-term oral health. Our gentle hygienists perform high-tech ultrasonic scale removal, polish stains, conduct oral cancer screenings, and apply enamel-strengthening fluoride treatments.',
+                faqs: [
+                    { q: 'How often should I get my teeth cleaned?', a: 'We recommend professional cleanings every 6 months to prevent plaque buildup and gum disease.' }
+                ]
+            },
+            {
+                id: 'implants',
+                category: 'restorative',
+                title: 'Permanent Dental Implants',
+                icon: 'fa-screwdriver-wrench',
+                shortDesc: 'Natural-looking, permanent titanium replacements for missing teeth that look, feel, and function like real teeth.',
+                costRange: '$1,500 - $3,200 per tooth',
+                duration: '1 - 2 Hours per placement',
+                recovery: '3 - 5 Days soft diet',
+                fullDesc: 'Dental implants are the gold standard for replacing missing teeth. A biocompatible titanium post fuses directly with your jawbone, topped with a custom handcrafted ceramic crown that matches your exact tooth color.',
+                faqs: [
+                    { q: 'How long do dental implants last?', a: 'With proper brushing and hygiene, dental implants can last a lifetime.' }
+                ]
+            },
+            {
+                id: 'veneers',
+                category: 'cosmetic',
+                title: 'Porcelain Veneers & Crowns',
+                icon: 'fa-wand-magic-sparkles',
+                shortDesc: 'Ultra-thin custom porcelain shells that fix discoloration, gaps, chips, and irregular alignment instantly.',
+                costRange: '$900 - $2,000 per tooth',
+                duration: '2 Appointments',
+                recovery: '1 - 2 Days',
+                fullDesc: 'Transform your smile aesthetics with custom porcelain veneers. Designed to mask chips, gaps, severe stain marks, or uneven teeth shape with durable, stain-resistant porcelain.',
+                faqs: [
+                    { q: 'Are veneers permanent?', a: 'Yes, porcelain veneers are a durable long-term cosmetic enhancement lasting 15-20+ years.' }
+                ]
+            },
+            {
+                id: 'whitening',
+                category: 'cosmetic',
+                title: '3D Laser Teeth Whitening',
+                icon: 'fa-sun',
+                shortDesc: 'Safe, in-office laser whitening treatment that brightens teeth up to 8 shades in just one 45-minute visit.',
+                costRange: '$350 - $500',
+                duration: '45 Minutes',
+                recovery: 'Immediate (24hr cold sensitivity)',
+                fullDesc: 'Achieve a brilliantly white smile fast. Our specialized dental gel activated by cold-blue laser light safely removes deep enamel stains from coffee, wine, and aging without causing gum damage.',
+                faqs: [
+                    { q: 'Will whitening hurt my enamel?', a: 'No, our professional whitening gels are formulated with desensitizers that protect enamel integrity.' }
+                ]
+            },
+            {
+                id: 'invisalign',
+                category: 'cosmetic',
+                title: 'Invisalign® Clear Aligners',
+                icon: 'fa-sparkles',
+                shortDesc: 'Discreet, removable clear aligners to straighten crowded or crooked teeth without dark metal brackets.',
+                costRange: '$2,800 - $4,800',
+                duration: '6 - 18 Months',
+                recovery: 'None',
+                fullDesc: 'Straighten your smile invisibly. Using 3D digital oral scans, we create custom series of clear, BPA-free aligner trays that shift teeth into optimal positions comfortably.',
+                faqs: [
+                    { q: 'How many hours a day do I wear aligners?', a: 'You should wear them 20 to 22 hours daily, taking them off only to eat and brush.' }
+                ]
+            },
+            {
+                id: 'root-canal',
+                category: 'restorative',
+                title: 'Pain-Free Root Canal Therapy',
+                icon: 'fa-microscope',
+                shortDesc: 'Relieve tooth pain fast and save infected teeth using modern microscopic root canal technique.',
+                costRange: '$600 - $1,100',
+                duration: '60 - 90 Mins',
+                recovery: '1 - 2 Days',
+                fullDesc: 'Modern root canals are quick, comfortable, and virtually painless. We remove infected nerve tissue, disinfect root canals thoroughly, and seal the inner tooth to prevent extractions.',
+                faqs: [
+                    { q: 'Is a root canal painful?', a: 'With local anesthesia and micro-tools, the procedure feels similar to getting a standard filling.' }
+                ]
+            },
+            {
+                id: 'pediatric',
+                category: 'pediatric',
+                title: 'Pediatric Dental Care',
+                icon: 'fa-child-reaching',
+                shortDesc: 'Gentle, friendly dental checkups, sealants, and cavity care designed specifically for children and teens.',
+                costRange: '$100 - $220',
+                duration: '30 - 45 Mins',
+                recovery: 'Immediate',
+                fullDesc: 'We create fun, comforting dental experiences for kids! Services include cavity prevention sealants, gentle fluoride varnish, space maintainers, and interactive oral hygiene instruction.',
+                faqs: [
+                    { q: 'When should my child visit the dentist?', a: 'The American Dental Association recommends a first visit by their 1st birthday or when the first tooth appears.' }
+                ]
+            },
+            {
+                id: 'emergency',
+                category: 'emergency',
+                title: '24/7 Emergency Dental Care',
+                icon: 'fa-kit-medical',
+                shortDesc: 'Immediate same-day relief for severe toothaches, broken teeth, knocked-out teeth, or swollen gums.',
+                costRange: '$150 (Exam) + Procedure',
+                duration: 'Immediate Priority',
+                recovery: 'Varies',
+                fullDesc: 'Dental emergencies happen unexpected. We reserve daily open slots for urgent cases including unbearable pain, dental trauma, lost crowns, or acute infections.',
+                faqs: [
+                    { q: 'What do I do if a tooth is knocked out?', a: 'Keep the tooth moist in a glass of milk or saline and come directly to our emergency room within 60 minutes!' }
+                ]
+            }
+        ];
+
+        let selectedTimeSlot = '10:00 AM';
+
+        // INITIALIZATION
+        window.addEventListener('DOMContentLoaded', () => {
+            // Read URL hash or default to home
+            const hash = window.location.hash.replace('#', '') || 'home';
+            navigateTo(hash, false);
+            setupBeforeAfterSlider();
+        });
+
+        // ROUTER / PAGE NAVIGATOR
+        function navigateTo(pageId, updateHistory = true) {
+            const app = document.getElementById('app');
+            
+            // Update URL Hash
+            if (updateHistory) {
+                window.location.hash = pageId;
+            }
+
+            // Highlight nav link
+            document.querySelectorAll('.nav-btn').forEach(btn => {
+                if (btn.getAttribute('data-page') === pageId) {
+                    btn.classList.add('text-brand-600', 'bg-brand-50/60', 'font-semibold');
+                    btn.classList.remove('text-slate-600');
+                } else {
+                    btn.classList.remove('text-brand-600', 'bg-brand-50/60', 'font-semibold');
+                    btn.classList.add('text-slate-600');
+                }
+            });
+
+            // Scroll to top
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+
+            // Render Page Content
+            switch (pageId) {
+                case 'home':
+                    app.innerHTML = renderHomePage();
+                    setTimeout(setupBeforeAfterSlider, 100);
+                    break;
+                case 'about':
+                    app.innerHTML = renderAboutPage();
+                    break;
+                case 'services':
+                    app.innerHTML = renderServicesPage();
+                    break;
+                case 'doctors':
+                    app.innerHTML = renderDoctorsPage();
+                    break;
+                case 'patient-info':
+                    app.innerHTML = renderPatientInfoPage();
+                    break;
+                case 'contact':
+                    app.innerHTML = renderContactPage();
+                    break;
+                default:
+                    app.innerHTML = renderHomePage();
+                    setTimeout(setupBeforeAfterSlider, 100);
+            }
+        }
+
+        // MOBILE MENU TOGGLE
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobileMenu');
+            menu.classList.toggle('hidden');
+        }
+
+        // --- PAGE RENDERING FUNCTIONS ---
+
+        // 1. HOME PAGE
+        function renderHomePage() {
+            return `
+                <!-- HERO SECTION -->
+                <section class="relative bg-gradient-to-br from-slate-900 via-brand-900 to-slate-900 text-white overflow-hidden pt-12 pb-24 lg:pt-20 lg:pb-32">
+                    <!-- Background Light Orbs -->
+                    <div class="absolute top-0 right-0 -mr-20 -mt-20 w-96 h-96 bg-brand-500/10 rounded-full blur-3xl pointer-events-none"></div>
+                    <div class="absolute bottom-0 left-0 -ml-20 -mb-20 w-96 h-96 bg-teal-400/10 rounded-full blur-3xl pointer-events-none"></div>
+
+                    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+                        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                            
+                            <!-- Left Hero Content -->
+                            <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
+                                <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-brand-500/20 border border-brand-400/30 text-teal-300 text-xs font-semibold tracking-wide uppercase">
+                                    <span class="w-2 h-2 rounded-full bg-teal-400 animate-pulse"></span>
+                                    Voted #1 Dental Clinic in New York
+                                </div>
+                                <h1 class="text-3xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight leading-tight">
+                                    Experience Pain-Free, <span class="text-transparent bg-clip-text bg-gradient-to-r from-teal-300 via-brand-200 to-emerald-300">Radiant Smiles</span> You Love.
+                                </h1>
+                                <p class="text-slate-300 text-base sm:text-lg max-w-2xl mx-auto lg:mx-0 leading-relaxed font-light">
+                                    From high-precision dental implants to 1-hour laser whitening, our compassionate specialists use cutting-edge technology for gentle, stunning results.
+                                </p>
+
+                                <div class="flex flex-col sm:flex-row justify-center lg:justify-start gap-4 pt-2">
+                                    <button onclick="openBookingModal()" class="bg-gradient-to-r from-brand-500 to-teal-400 hover:from-brand-600 hover:to-teal-500 text-slate-900 font-bold px-8 py-4 rounded-2xl shadow-xl shadow-brand-500/20 hover:scale-105 transition duration-300 flex items-center justify-center gap-3 text-base">
+                                        <i class="fa-regular fa-calendar-check text-lg"></i> Book Appointment Now
+                                    </button>
+                                    <button onclick="navigateTo('services')" class="border border-slate-700 hover:border-slate-500 bg-slate-800/60 text-slate-200 hover:text-white font-semibold px-7 py-4 rounded-2xl transition flex items-center justify-center gap-2 text-base">
+                                        Explore Services <i class="fa-solid fa-arrow-right text-xs"></i>
+                                    </button>
+                                </div>
+
+                                <!-- Trust Indicators -->
+                                <div class="pt-6 border-t border-slate-800/80 flex flex-wrap justify-center lg:justify-start items-center gap-8 text-xs text-slate-400">
+                                    <div class="flex items-center gap-2">
+                                        <i class="fa-solid fa-star text-amber-400 text-sm"></i>
+                                        <span><strong class="text-white">4.9/5 Rating</strong> (1,400+ Reviews)</span>
+                                    </div>
+                                    <div class="flex items-center gap-2">
+                                        <i class="fa-solid fa-shield-halved text-brand-400 text-sm"></i>
+                                        <span><strong class="text-white">0% Financing</strong> Available</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Right Hero Graphic / Quick Appointment Card -->
+                            <div class="lg:col-span-5">
+                                <div class="relative mx-auto max-w-md">
+                                    <div class="rounded-3xl overflow-hidden shadow-2xl border border-slate-700/60 bg-slate-800/80 backdrop-blur-md p-6 sm:p-8 space-y-5">
+                                        <div class="flex justify-between items-center border-b border-slate-700/60 pb-4">
+                                            <div>
+                                                <h3 class="text-lg font-bold text-white">Quick Checkup Request</h3>
+                                                <p class="text-xs text-slate-400">Get a response within 15 minutes</p>
+                                            </div>
+                                            <span class="bg-brand-500/20 text-teal-300 text-xs px-2.5 py-1 rounded-full font-medium">Fast Pass</span>
+                                        </div>
+
+                                        <form onsubmit="handleQuickCheckup(event)" class="space-y-3.5">
+                                            <div>
+                                                <label class="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-1">Your Name</label>
+                                                <input type="text" id="quickName" placeholder="Full name" required class="w-full bg-slate-900/90 border border-slate-700 rounded-xl px-4 py-2.5 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-brand-500">
+                                            </div>
+                                            <div>
+                                                <label class="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-1">Phone Number</label>
+                                                <input type="tel" id="quickPhone" placeholder="(555) 000-0000" required class="w-full bg-slate-900/90 border border-slate-700 rounded-xl px-4 py-2.5 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-brand-500">
+                                            </div>
+                                            <div>
+                                                <label class="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-1">Service Needed</label>
+                                                <select id="quickService" class="w-full bg-slate-900/90 border border-slate-700 rounded-xl px-4 py-2.5 text-sm text-white focus:outline-none focus:border-brand-500">
+                                                    <option>General Teeth Cleaning</option>
+                                                    <option>Cosmetic Whitening</option>
+                                                    <option>Dental Implants</option>
+                                                    <option>Toothache / Pain Relief</option>
+                                                </select>
+                                            </div>
+                                            <button type="submit" class="w-full bg-brand-500 hover:bg-brand-600 text-slate-900 font-bold py-3 rounded-xl transition shadow-lg text-sm">
+                                                Request Callback
+                                            </button>
+                                        </form>
+
+                                        <div class="text-center pt-1">
+                                            <span class="text-xs text-slate-400 flex items-center justify-center gap-1">
+                                                <i class="fa-solid fa-lock text-slate-500"></i> Your details are 100% HIPAA protected.
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </section>
+
+                <!-- STATS & BADGES SECTION -->
+                <section class="py-10 bg-white border-b border-slate-100 relative -mt-6 z-20 max-w-6xl mx-auto rounded-3xl shadow-xl px-6">
+                    <div class="grid grid-cols-2 md:grid-cols-4 gap-6 text-center divide-x-0 md:divide-x divide-slate-100">
+                        <div class="p-3">
+                            <div class="text-3xl sm:text-4xl font-extrabold text-brand-600">15+</div>
+                            <p class="text-xs sm:text-sm font-medium text-slate-500 mt-1">Years Experience</p>
+                        </div>
+                        <div class="p-3">
+                            <div class="text-3xl sm:text-4xl font-extrabold text-brand-600">12,500+</div>
+                            <p class="text-xs sm:text-sm font-medium text-slate-500 mt-1">Happy Smiles Created</p>
+                        </div>
+                        <div class="p-3">
+                            <div class="text-3xl sm:text-4xl font-extrabold text-brand-600">100%</div>
+                            <p class="text-xs sm:text-sm font-medium text-slate-500 mt-1">Pain-Free Guarantee</p>
+                        </div>
+                        <div class="p-3">
+                            <div class="text-3xl sm:text-4xl font-extrabold text-brand-600">24/7</div>
+                            <p class="text-xs sm:text-sm font-medium text-slate-500 mt-1">Emergency Support</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- FEATURED SERVICES PREVIEW -->
+                <section class="py-20 bg-slate-50">
+                    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                        <div class="text-center max-w-2xl mx-auto mb-16 space-y-3">
+                            <h2 class="text-xs font-bold uppercase tracking-wider text-brand-600">Our Comprehensive Care</h2>
+                            <p class="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight">World-Class Dental Procedures</p>
+                            <p class="text-slate-500 text-sm">Combining dental expertise with state-of-the-art tech for seamless treatments.</p>
+                        </div>
+
+                        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                            ${servicesData.slice(0, 4).map(service => `
+                                <div class="bg-white rounded-3xl p-6 shadow-sm border border-slate-100 hover:shadow-xl hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between group">
+                                    <div>
+                                        <div class="w-14 h-14 bg-brand-50 text-brand-600 rounded-2xl flex items-center justify-center text-2xl mb-6 group-hover:bg-brand-600 group-hover:text-white transition-colors duration-300">
+                                            <i class="fa-solid ${service.icon}"></i>
+                                        </div>
+                                        <h3 class="text-xl font-bold text-slate-900 mb-2">${service.title}</h3>
+                                        <p class="text-slate-500 text-xs leading-relaxed mb-6">${service.shortDesc}</p>
+                                    </div>
+                                    <div class="pt-4 border-t border-slate-100 flex items-center justify-between">
+                                        <span class="text-xs font-semibold text-brand-700 bg-brand-50 px-2.5 py-1 rounded-md">${service.costRange}</span>
+                                        <button onclick="openServiceModal('${service.id}')" class="text-xs font-bold text-slate-700 group-hover:text-brand-600 flex items-center gap-1">
+                                            Details <i class="fa-solid fa-chevron-right text-[10px]"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            `).join('')}
+                        </div>
+
+                        <div class="text-center mt-12">
+                            <button onclick="navigateTo('services')" class="inline-flex items-center gap-2 text-sm font-semibold text-brand-700 hover:text-brand-800 bg-brand-100/60 hover:bg-brand-100 px-6 py-3 rounded-xl transition">
+                                View All Dental Services & Pricing <i class="fa-solid fa-arrow-right"></i>
+                            </button>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- SMILE BEFORE & AFTER COMPARISON SLIDER -->
+                <section class="py-20 bg-white border-y border-slate-100">
+                    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                            
+                            <div class="lg:col-span-5 space-y-6">
+                                <span class="text-xs font-bold uppercase tracking-wider text-brand-600">Real Transformation Results</span>
+                                <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900">See the Difference A New Smile Makes</h2>
+                                <p class="text-slate-600 text-sm leading-relaxed">
+                                    Drag the slider handle left and right to see the dramatic before-and-after whitening and restoration completed in just one 2-hour appointment at our studio.
+                                </p>
+
+                                <div class="space-y-4 pt-2">
+                                    <div class="flex items-start space-x-3">
+                                        <div class="w-6 h-6 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center text-xs mt-0.5"><i class="fa-solid fa-check"></i></div>
+                                        <div>
+                                            <h4 class="font-bold text-slate-800 text-sm">Non-Invasive Laser Whitening</h4>
+                                            <p class="text-xs text-slate-500">Up to 8 shades lighter in 45 minutes without tooth sensitivity.</p>
+                                        </div>
+                                    </div>
+                                    <div class="flex items-start space-x-3">
+                                        <div class="w-6 h-6 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center text-xs mt-0.5"><i class="fa-solid fa-check"></i></div>
+                                        <div>
+                                            <h4 class="font-bold text-slate-800 text-sm">Ultra-Thin Handcrafted Veneers</h4>
+                                            <p class="text-xs text-slate-500">Symmetrical, stain-resistant porcelain designed to fit your unique face shape.</p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="pt-4">
+                                    <button onclick="openBookingModal()" class="bg-slate-900 hover:bg-slate-800 text-white font-semibold px-6 py-3 rounded-xl shadow-lg transition text-sm">
+                                        Schedule Your Consultation
+                                    </button>
+                                </div>
+                            </div>
+
+                            <!-- SLIDER WIDGET -->
+                            <div class="lg:col-span-7 flex justify-center">
+                                <div class="relative w-full max-w-lg aspect-[4/3] rounded-3xl overflow-hidden shadow-2xl select-none border-4 border-white" id="sliderContainer">
+                                    <!-- AFTER IMAGE (Background) -->
+                                    <img src="https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?auto=format&fit=crop&w=1000&q=80" alt="After Teeth Whitening" class="absolute inset-0 w-full h-full object-cover">
+                                    <span class="absolute top-4 right-4 bg-emerald-600 text-white text-[11px] font-bold px-3 py-1 rounded-full uppercase tracking-wider z-10 shadow">After Treatment</span>
+
+                                    <!-- BEFORE IMAGE (Clipped Foreground) -->
+                                    <div id="beforeImageWrapper" class="absolute inset-0 w-1/2 overflow-hidden border-r-2 border-white shadow-2xl">
+                                        <img src="https://images.unsplash.com/photo-1606811841689-23dfddce3e95?auto=format&fit=crop&w=1000&q=80" alt="Before Teeth Whitening" class="absolute inset-0 w-full h-full object-cover max-w-none" id="beforeImg">
+                                        <span class="absolute top-4 left-4 bg-slate-800 text-white text-[11px] font-bold px-3 py-1 rounded-full uppercase tracking-wider z-10 shadow">Before Care</span>
+                                    </div>
+
+                                    <!-- SLIDER HANDLE -->
+                                    <div id="sliderHandle" class="absolute top-0 bottom-0 left-1/2 -ml-4 w-8 flex flex-col items-center justify-center cursor-ew-resize z-20">
+                                        <div class="w-8 h-8 rounded-full bg-white shadow-xl text-brand-600 flex items-center justify-center border-2 border-brand-500">
+                                            <i class="fa-solid fa-left-right text-xs"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </section>
+
+                <!-- RECENT PATIENT REVIEWS -->
+                <section class="py-20 bg-slate-50">
+                    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                        <div class="text-center max-w-xl mx-auto mb-16 space-y-2">
+                            <span class="text-xs font-bold uppercase tracking-wider text-brand-600">Patient Stories</span>
+                            <h2 class="text-3xl font-extrabold text-slate-900">Loved By Over 10,000+ Patients</h2>
+                        </div>
+
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                            <div class="bg-white p-6 rounded-3xl shadow-sm border border-slate-100 flex flex-col justify-between space-y-4">
+                                <div class="space-y-3">
+                                    <div class="flex text-amber-400 text-sm space-x-1">
+                                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                                    </div>
+                                    <p class="text-slate-600 text-xs leading-relaxed italic">"I’ve always had severe dental anxiety, but Dr. Jenkins made my implant procedure completely comfortable. I felt zero pain during and after!"</p>
+                                </div>
+                                <div class="flex items-center space-x-3 pt-4 border-t border-slate-100">
+                                    <div class="w-10 h-10 rounded-full bg-brand-100 text-brand-700 font-bold flex items-center justify-center text-sm">MA</div>
+                                    <div>
+                                        <h4 class="font-bold text-slate-900 text-sm">Mark A.</h4>
+                                        <span class="text-[11px] text-slate-400">Dental Implant Patient</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="bg-white p-6 rounded-3xl shadow-sm border border-slate-100 flex flex-col justify-between space-y-4">
+                                <div class="space-y-3">
+                                    <div class="flex text-amber-400 text-sm space-x-1">
+                                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                                    </div>
+                                    <p class="text-slate-600 text-xs leading-relaxed italic">"Finished my 8-month Invisalign treatment today with Dr. Chen. My teeth look completely straight! The clinic staff is exceptionally polite."</p>
+                                </div>
+                                <div class="flex items-center space-x-3 pt-4 border-t border-slate-100">
+                                    <div class="w-10 h-10 rounded-full bg-emerald-100 text-emerald-700 font-bold flex items-center justify-center text-sm">SK</div>
+                                    <div>
+                                        <h4 class="font-bold text-slate-900 text-sm">Sophia K.</h4>
+                                        <span class="text-[11px] text-slate-400">Invisalign Patient</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="bg-white p-6 rounded-3xl shadow-sm border border-slate-100 flex flex-col justify-between space-y-4">
+                                <div class="space-y-3">
+                                    <div class="flex text-amber-400 text-sm space-x-1">
+                                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                                    </div>
+                                    <p class="text-slate-600 text-xs leading-relaxed italic">"Took my 6-year-old son to Dr. Emily for his first filling. She was super patient and kind. No tears at all!"</p>
+                                </div>
+                                <div class="flex items-center space-x-3 pt-4 border-t border-slate-100">
+                                    <div class="w-10 h-10 rounded-full bg-amber-100 text-amber-700 font-bold flex items-center justify-center text-sm">DL</div>
+                                    <div>
+                                        <h4 class="font-bold text-slate-900 text-sm">David L.</h4>
+                                        <span class="text-[11px] text-slate-400">Pediatric Care Parent</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            `;
+        }
+
+        // 2. ABOUT US PAGE
+        function renderAboutPage() {
+            return `
+                <div class="bg-slate-900 text-white py-16">
+                    <div class="max-w-7xl mx-auto px-4 text-center space-y-3">
+                        <span class="text-brand-400 font-bold text-xs uppercase tracking-widest">About Our Clinic</span>
+                        <h1 class="text-4xl font-extrabold">Excellence in Dental Medicine</h1>
+                        <p class="text-slate-400 text-sm max-w-xl mx-auto">Providing gentle, high-precision dental care for families in New York since 2011.</p>
+                    </div>
+                </div>
+
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 space-y-20">
+                    <!-- Our Philosophy -->
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+                        <div>
+                            <img src="https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&w=800&q=80" alt="Modern Clinic Interior" class="rounded-3xl shadow-xl">
+                        </div>
+                        <div class="space-y-5">
+                            <span class="text-xs font-bold text-brand-600 uppercase tracking-wider">Patient-First Philosophy</span>
+                            <h2 class="text-3xl font-bold text-slate-900">Modern Technology Meets Compassionate Care</h2>
+                            <p class="text-slate-600 text-sm leading-relaxed">
+                                At BrightSmile Dental, we believe dental visits should be relaxing and reassuring. Our state-of-the-art facility features ergonomic treatment chairs, low-dose 3D digital imaging, and sedation options designed for maximum patient comfort.
+                            </p>
+                            <div class="grid grid-cols-2 gap-4 pt-2 text-xs font-semibold text-slate-800">
+                                <div class="flex items-center gap-2"><i class="fa-solid fa-check text-brand-600"></i> 3D Digital Intraoral Scanners</div>
+                                <div class="flex items-center gap-2"><i class="fa-solid fa-check text-brand-600"></i> Low-Radiation X-Rays</div>
+                                <div class="flex items-center gap-2"><i class="fa-solid fa-check text-brand-600"></i> Hospital-Grade Sterilization</div>
+                                <div class="flex items-center gap-2"><i class="fa-solid fa-check text-brand-600"></i> Nitrous Oxide Sedation</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Core Value Pillars -->
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                        <div class="bg-white p-8 rounded-3xl border border-slate-100 shadow-sm space-y-3">
+                            <div class="w-12 h-12 bg-brand-50 text-brand-600 rounded-2xl flex items-center justify-center text-xl font-bold">1</div>
+                            <h3 class="font-bold text-slate-900 text-lg">Painless Dental Tech</h3>
+                            <p class="text-xs text-slate-500 leading-relaxed">Computerized anesthesia delivery and gentle micro-instruments eliminate treatment anxiety.</p>
+                        </div>
+                        <div class="bg-white p-8 rounded-3xl border border-slate-100 shadow-sm space-y-3">
+                            <div class="w-12 h-12 bg-brand-50 text-brand-600 rounded-2xl flex items-center justify-center text-xl font-bold">2</div>
+                            <h3 class="font-bold text-slate-900 text-lg">Transparent Pricing</h3>
+                            <p class="text-xs text-slate-500 leading-relaxed">No hidden fees. We provide detailed cost breakdowns and maximize insurance benefits prior to treatment.</p>
+                        </div>
+                        <div class="bg-white p-8 rounded-3xl border border-slate-100 shadow-sm space-y-3">
+                            <div class="w-12 h-12 bg-brand-50 text-brand-600 rounded-2xl flex items-center justify-center text-xl font-bold">3</div>
+                            <h3 class="font-bold text-slate-900 text-lg">Continuous Education</h3>
+                            <p class="text-xs text-slate-500 leading-relaxed">Our dentists undergo 100+ hours of annual advanced training in dental surgery and aesthetic medicine.</p>
+                        </div>
+                    </div>
+                </div>
+            `;
+        }
+
+        // 3. SERVICES PAGE (WITH CATEGORY FILTERS)
+        function renderServicesPage() {
+            return `
+                <div class="bg-slate-900 text-white py-16">
+                    <div class="max-w-7xl mx-auto px-4 text-center space-y-3">
+                        <span class="text-brand-400 font-bold text-xs uppercase tracking-widest">Comprehensive Dental Care</span>
+                        <h1 class="text-4xl font-extrabold">Treatments & Dental Procedures</h1>
+                        <p class="text-slate-400 text-sm max-w-xl mx-auto">Explore our range of preventive, cosmetic, and surgical treatments.</p>
+                    </div>
+                </div>
+
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+                    <!-- CATEGORY FILTER BUTTONS -->
+                    <div class="flex flex-wrap justify-center gap-2 mb-12" id="serviceFilterBtns">
+                        <button onclick="filterServices('all')" class="filter-btn active-filter px-5 py-2.5 rounded-xl font-semibold text-xs transition bg-brand-600 text-white shadow-md" data-category="all">All Treatments</button>
+                        <button onclick="filterServices('preventive')" class="filter-btn px-5 py-2.5 rounded-xl font-semibold text-xs transition bg-white text-slate-600 hover:bg-slate-100 border border-slate-200" data-category="preventive">Preventive Care</button>
+                        <button onclick="filterServices('cosmetic')" class="filter-btn px-5 py-2.5 rounded-xl font-semibold text-xs transition bg-white text-slate-600 hover:bg-slate-100 border border-slate-200" data-category="cosmetic">Cosmetic Dentistry</button>
+                        <button onclick="filterServices('restorative')" class="filter-btn px-5 py-2.5 rounded-xl font-semibold text-xs transition bg-white text-slate-600 hover:bg-slate-100 border border-slate-200" data-category="restorative">Restorative & Implants</button>
+                        <button onclick="filterServices('pediatric')" class="filter-btn px-5 py-2.5 rounded-xl font-semibold text-xs transition bg-white text-slate-600 hover:bg-slate-100 border border-slate-200" data-category="pediatric">Pediatric</button>
+                        <button onclick="filterServices('emergency')" class="filter-btn px-5 py-2.5 rounded-xl font-semibold text-xs transition bg-white text-slate-600 hover:bg-slate-100 border border-slate-200" data-category="emergency">Emergency Care</button>
+                    </div>
+
+                    <!-- SERVICES GRID -->
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="servicesGrid">
+                        ${renderServiceCards(servicesData)}
+                    </div>
+                </div>
+            `;
+        }
+
+        function renderServiceCards(list) {
+            return list.map(service => `
+                <div class="bg-white rounded-3xl p-7 shadow-sm border border-slate-100 hover:shadow-xl transition-all duration-300 flex flex-col justify-between service-card" data-category="${service.category}">
+                    <div>
+                        <div class="flex justify-between items-start mb-6">
+                            <div class="w-14 h-14 bg-brand-50 text-brand-600 rounded-2xl flex items-center justify-center text-2xl">
+                                <i class="fa-solid ${service.icon}"></i>
+                            </div>
+                            <span class="text-[11px] font-bold uppercase tracking-wider text-slate-400 bg-slate-100 px-2.5 py-1 rounded-md">${service.category}</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-slate-900 mb-2">${service.title}</h3>
+                        <p class="text-slate-500 text-xs leading-relaxed mb-6">${service.shortDesc}</p>
+                    </div>
+
+                    <div class="space-y-4 pt-4 border-t border-slate-100">
+                        <div class="flex justify-between text-xs">
+                            <span class="text-slate-500">Avg. Cost:</span>
+                            <span class="font-bold text-slate-900">${service.costRange}</span>
+                        </div>
+                        <div class="flex justify-between text-xs">
+                            <span class="text-slate-500">Duration:</span>
+                            <span class="font-medium text-slate-700">${service.duration}</span>
+                        </div>
+                        <button onclick="openServiceModal('${service.id}')" class="w-full py-3 bg-slate-50 hover:bg-brand-50 text-slate-800 hover:text-brand-700 font-semibold rounded-xl text-xs transition flex items-center justify-center gap-2 border border-slate-200/60">
+                            View Full Details & FAQs <i class="fa-solid fa-arrow-right text-[10px]"></i>
+                        </button>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function filterServices(cat) {
+            const btns = document.querySelectorAll('#serviceFilterBtns .filter-btn');
+            btns.forEach(btn => {
+                if (btn.getAttribute('data-category') === cat) {
+                    btn.className = 'filter-btn active-filter px-5 py-2.5 rounded-xl font-semibold text-xs transition bg-brand-600 text-white shadow-md';
+                } else {
+                    btn.className = 'filter-btn px-5 py-2.5 rounded-xl font-semibold text-xs transition bg-white text-slate-600 hover:bg-slate-100 border border-slate-200';
+                }
+            });
+
+            const filtered = cat === 'all' ? servicesData : servicesData.filter(s => s.category === cat);
+            document.getElementById('servicesGrid').innerHTML = renderServiceCards(filtered);
+        }
+
+        // 4. DOCTORS / TEAM PAGE
+        function renderDoctorsPage() {
+            return `
+                <div class="bg-slate-900 text-white py-16">
+                    <div class="max-w-7xl mx-auto px-4 text-center space-y-3">
+                        <span class="text-brand-400 font-bold text-xs uppercase tracking-widest">Board-Certified Specialists</span>
+                        <h1 class="text-4xl font-extrabold">Meet Our Dental Doctors</h1>
+                        <p class="text-slate-400 text-sm max-w-xl mx-auto">Leader in aesthetic dentistry, implant surgery, and pediatric care.</p>
+                    </div>
+                </div>
+
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                        ${doctorsData.map(doc => `
+                            <div class="bg-white rounded-3xl p-6 border border-slate-100 shadow-sm flex flex-col sm:flex-row gap-6 items-center">
+                                <img src="${doc.img}" alt="${doc.name}" class="w-40 h-48 object-cover rounded-2xl shadow-md shrink-0">
+                                <div class="space-y-3 flex-grow">
+                                    <div>
+                                        <span class="text-[11px] font-bold text-brand-600 uppercase tracking-wider">${doc.experience}</span>
+                                        <h3 class="text-xl font-bold text-slate-900">${doc.name}</h3>
+                                        <p class="text-xs text-slate-500 font-medium">${doc.role}</p>
+                                    </div>
+                                    <p class="text-xs text-slate-600 leading-relaxed">${doc.bio}</p>
+                                    
+                                    <div class="flex flex-wrap gap-1.5 pt-1">
+                                        ${doc.specialties.map(spec => `<span class="bg-slate-100 text-slate-600 text-[10px] px-2.5 py-1 rounded-md font-medium">${spec}</span>`).join('')}
+                                    </div>
+
+                                    <div class="pt-2">
+                                        <button onclick="openBookingWithDoctor('${doc.name}')" class="w-full bg-brand-600 hover:bg-brand-700 text-white font-semibold py-2.5 rounded-xl text-xs transition shadow-sm">
+                                            Book Consultation with ${doc.name.split(',')[0]}
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        `).join('')}
+                    </div>
+                </div>
+            `;
+        }
+
+        // 5. PATIENT INFO & COST ESTIMATOR PAGE
+        function renderPatientInfoPage() {
+            return `
+                <div class="bg-slate-900 text-white py-16">
+                    <div class="max-w-7xl mx-auto px-4 text-center space-y-3">
+                        <span class="text-brand-400 font-bold text-xs uppercase tracking-widest">Financial Transparency</span>
+                        <h1 class="text-4xl font-extrabold">Treatment Cost & Insurance Estimator</h1>
+                        <p class="text-slate-400 text-sm max-w-xl mx-auto">Calculate your estimated out-of-pocket costs with top insurance providers.</p>
+                    </div>
+                </div>
+
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 space-y-16">
+                    
+                    <!-- CALCULATOR WIDGET -->
+                    <div class="bg-white rounded-3xl p-6 sm:p-10 border border-slate-100 shadow-xl max-w-3xl mx-auto space-y-6">
+                        <div class="border-b border-slate-100 pb-4">
+                            <h2 class="text-xl font-bold text-slate-900">Instant Dental Cost Estimator</h2>
+                            <p class="text-xs text-slate-500">Select your intended procedure and insurance coverage</p>
+                        </div>
+
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                            <div>
+                                <label class="block text-xs font-semibold text-slate-700 uppercase tracking-wider mb-2">1. Select Procedure</label>
+                                <select id="calcProcedure" onchange="calculateEstimate()" class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:ring-2 focus:ring-brand-500 outline-none bg-slate-50/50 text-sm">
+                                    <option value="150|General Dental Examination & Cleaning">General Cleaning & Exam</option>
+                                    <option value="400|Laser Teeth Whitening">Laser Whitening (Cosmetic)</option>
+                                    <option value="2500|Single Tooth Dental Implant">Single Dental Implant</option>
+                                    <option value="1200|Porcelain Cosmetic Veneers">Porcelain Veneers (per tooth)</option>
+                                    <option value="800|Root Canal Therapy">Root Canal Treatment</option>
+                                    <option value="3500|Invisalign Clear Aligners">Invisalign Full Course</option>
+                                </select>
+                            </div>
+
+                            <div>
+                                <label class="block text-xs font-semibold text-slate-700 uppercase tracking-wider mb-2">2. Insurance Provider</label>
+                                <select id="calcInsurance" onchange="calculateEstimate()" class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:ring-2 focus:ring-brand-500 outline-none bg-slate-50/50 text-sm">
+                                    <option value="0.8">Delta Dental (Estimated 80% Coverage)</option>
+                                    <option value="0.7">Cigna Dental (Estimated 70% Coverage)</option>
+                                    <option value="0.75">MetLife Dental (Estimated 75% Coverage)</option>
+                                    <option value="0.6">Aetna Dental (Estimated 60% Coverage)</option>
+                                    <option value="0">Self-Pay / No Insurance (0%)</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <!-- RESULTS DISPLAY BOX -->
+                        <div class="bg-brand-50/70 border border-brand-200/80 rounded-2xl p-6 space-y-4">
+                            <div class="flex justify-between items-center text-sm border-b border-brand-200/50 pb-2">
+                                <span class="text-slate-600">Standard Estimated Cost:</span>
+                                <span class="font-bold text-slate-800" id="calcBaseCost">$150</span>
+                            </div>
+                            <div class="flex justify-between items-center text-sm border-b border-brand-200/50 pb-2">
+                                <span class="text-slate-600">Estimated Insurance Coverage:</span>
+                                <span class="font-bold text-emerald-600" id="calcInsCover">-$120</span>
+                            </div>
+                            <div class="flex justify-between items-center text-lg font-extrabold text-brand-900 pt-1">
+                                <span>Estimated Out-of-Pocket:</span>
+                                <span class="text-2xl text-brand-700" id="calcFinalCost">$30</span>
+                            </div>
+                            <p class="text-[11px] text-slate-500 italic">
+                                *Note: Estimates are for informational purposes. Final out-of-pocket costs depend on individual deductible and annual policy limits.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- FAQ ACCORDION SECTION -->
+                    <div class="max-w-3xl mx-auto space-y-6">
+                        <div class="text-center space-y-2">
+                            <h2 class="text-2xl font-bold text-slate-900">Frequently Asked Questions</h2>
+                            <p class="text-xs text-slate-500">Everything you need to know before your first visit</p>
+                        </div>
+
+                        <div class="space-y-3">
+                            <details class="bg-white rounded-2xl p-5 border border-slate-200 shadow-sm group">
+                                <summary class="font-bold text-slate-800 text-sm cursor-pointer list-none flex justify-between items-center">
+                                    <span>What should I bring to my first appointment?</span>
+                                    <i class="fa-solid fa-chevron-down text-xs text-slate-400 group-open:rotate-180 transition"></i>
+                                </summary>
+                                <p class="text-xs text-slate-600 mt-3 leading-relaxed">
+                                    Please bring a valid photo ID, your dental insurance card, and a list of any current prescription medications you are taking.
+                                </p>
+                            </details>
+
+                            <details class="bg-white rounded-2xl p-5 border border-slate-200 shadow-sm group">
+                                <summary class="font-bold text-slate-800 text-sm cursor-pointer list-none flex justify-between items-center">
+                                    <span>Do you offer payment plans or 0% interest financing?</span>
+                                    <i class="fa-solid fa-chevron-down text-xs text-slate-400 group-open:rotate-180 transition"></i>
+                                </summary>
+                                <p class="text-xs text-slate-600 mt-3 leading-relaxed">
+                                    Yes! We partner with CareCredit and offer flexible in-house monthly payment plans with 0% interest for up to 24 months.
+                                </p>
+                            </details>
+
+                            <details class="bg-white rounded-2xl p-5 border border-slate-200 shadow-sm group">
+                                <summary class="font-bold text-slate-800 text-sm cursor-pointer list-none flex justify-between items-center">
+                                    <span>What if I have dental anxiety or fear of pain?</span>
+                                    <i class="fa-solid fa-chevron-down text-xs text-slate-400 group-open:rotate-180 transition"></i>
+                                </summary>
+                                <p class="text-xs text-slate-600 mt-3 leading-relaxed">
+                                    We offer gentle nitrous oxide (laughing gas) and oral conscious sedation options. Our team ensures complete numbness before any treatment begins.
+                                </p>
+                            </details>
+                        </div>
+                    </div>
+
+                </div>
+            `;
+        }
+
+        // 6. CONTACT PAGE
+        function renderContactPage() {
+            return `
+                <div class="bg-slate-900 text-white py-16">
+                    <div class="max-w-7xl mx-auto px-4 text-center space-y-3">
+                        <span class="text-brand-400 font-bold text-xs uppercase tracking-widest">Get In Touch</span>
+                        <h1 class="text-4xl font-extrabold">Contact & Emergency Care</h1>
+                        <p class="text-slate-400 text-sm max-w-xl mx-auto">We are here to answer questions and provide immediate pain relief.</p>
+                    </div>
+                </div>
+
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+                    <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+                        
+                        <!-- Contact Info & Hours -->
+                        <div class="lg:col-span-5 space-y-8">
+                            <div class="bg-white p-8 rounded-3xl border border-slate-100 shadow-sm space-y-6">
+                                <h3 class="font-bold text-slate-900 text-xl border-b border-slate-100 pb-3">Clinic Location</h3>
+                                
+                                <div class="flex items-start space-x-4">
+                                    <div class="w-10 h-10 rounded-xl bg-brand-50 text-brand-600 flex items-center justify-center shrink-0">
+                                        <i class="fa-solid fa-location-dot"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-bold text-slate-800 text-sm">Address</h4>
+                                        <p class="text-xs text-slate-500 mt-0.5">124 Medical Plaza, Suite 400<br>New York, NY 10001</p>
+                                    </div>
+                                </div>
+
+                                <div class="flex items-start space-x-4">
+                                    <div class="w-10 h-10 rounded-xl bg-brand-50 text-brand-600 flex items-center justify-center shrink-0">
+                                        <i class="fa-solid fa-phone"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-bold text-slate-800 text-sm">Direct Phone</h4>
+                                        <p class="text-xs text-slate-500 mt-0.5">(555) 911-SMILE / (555) 234-5678</p>
+                                    </div>
+                                </div>
+
+                                <div class="flex items-start space-x-4">
+                                    <div class="w-10 h-10 rounded-xl bg-brand-50 text-brand-600 flex items-center justify-center shrink-0">
+                                        <i class="fa-solid fa-envelope"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-bold text-slate-800 text-sm">Email Enquiries</h4>
+                                        <p class="text-xs text-slate-500 mt-0.5">care@brightsmiledental.com</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Interactive Map Placeholder -->
+                            <div class="bg-slate-200 rounded-3xl h-64 overflow-hidden relative shadow-inner flex items-center justify-center">
+                                <div class="text-center p-6 space-y-2">
+                                    <i class="fa-solid fa-map-location-dot text-4xl text-brand-600"></i>
+                                    <h4 class="font-bold text-slate-800 text-sm">BrightSmile Dental Studio</h4>
+                                    <p class="text-xs text-slate-500">Free validated underground parking available for patients.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Interactive Contact Form -->
+                        <div class="lg:col-span-7">
+                            <div class="bg-white p-8 sm:p-10 rounded-3xl border border-slate-100 shadow-xl space-y-6">
+                                <h3 class="text-2xl font-bold text-slate-900">Send Us A Message</h3>
+                                <form onsubmit="handleContactSubmit(event)" class="space-y-4">
+                                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                                        <div>
+                                            <label class="block text-xs font-semibold text-slate-700 uppercase tracking-wider mb-1">Your Name *</label>
+                                            <input type="text" required class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:ring-2 focus:ring-brand-500 outline-none text-sm">
+                                        </div>
+                                        <div>
+                                            <label class="block text-xs font-semibold text-slate-700 uppercase tracking-wider mb-1">Phone Number *</label>
+                                            <input type="tel" required class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:ring-2 focus:ring-brand-500 outline-none text-sm">
+                                        </div>
+                                    </div>
+
+                                    <div>
+                                        <label class="block text-xs font-semibold text-slate-700 uppercase tracking-wider mb-1">Email Address *</label>
+                                        <input type="email" required class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:ring-2 focus:ring-brand-500 outline-none text-sm">
+                                    </div>
+
+                                    <div>
+                                        <label class="block text-xs font-semibold text-slate-700 uppercase tracking-wider mb-1">Message / Dental Concern</label>
+                                        <textarea rows="4" required class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:ring-2 focus:ring-brand-500 outline-none text-sm" placeholder="Tell us how we can help..."></textarea>
+                                    </div>
+
+                                    <div class="flex items-center space-x-2 pt-1">
+                                        <input type="checkbox" id="emergencyFlag" class="w-4 h-4 text-brand-600 rounded">
+                                        <label for="emergencyFlag" class="text-xs text-rose-600 font-semibold">Mark as Emergency Priority (Immediate Pain)</label>
+                                    </div>
+
+                                    <button type="submit" class="w-full bg-slate-900 hover:bg-slate-800 text-white font-bold py-3.5 rounded-xl shadow-lg transition text-sm">
+                                        Send Message
+                                    </button>
+                                </form>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            `;
+        }
+
+        // --- INTERACTIVE SLIDER LOGIC ---
+        function setupBeforeAfterSlider() {
+            const container = document.getElementById('sliderContainer');
+            const handle = document.getElementById('sliderHandle');
+            const beforeWrapper = document.getElementById('beforeImageWrapper');
+            const beforeImg = document.getElementById('beforeImg');
+
+            if (!container || !handle || !beforeWrapper || !beforeImg) return;
+
+            let isDragging = false;
+
+            function updateWidths() {
+                const rect = container.getBoundingClientRect();
+                beforeImg.style.width = `${rect.width}px`;
+            }
+
+            window.addEventListener('resize', updateWidths);
+            updateWidths();
+
+            function setPosition(x) {
+                const rect = container.getBoundingClientRect();
+                let posX = x - rect.left;
+                if (posX < 0) posX = 0;
+                if (posX > rect.width) posX = rect.width;
+
+                const percent = (posX / rect.width) * 100;
+                beforeWrapper.style.width = `${percent}%`;
+                handle.style.left = `${percent}%`;
+            }
+
+            container.addEventListener('mousedown', (e) => { isDragging = true; setPosition(e.clientX); });
+            window.addEventListener('mouseup', () => { isDragging = false; });
+            window.addEventListener('mousemove', (e) => { if (isDragging) setPosition(e.clientX); });
+
+            container.addEventListener('touchstart', (e) => { isDragging = true; setPosition(e.touches[0].clientX); });
+            window.addEventListener('touchend', () => { isDragging = false; });
+            window.addEventListener('touchmove', (e) => { if (isDragging) setPosition(e.touches[0].clientX); });
+        }
+
+        // --- MODAL FUNCTIONS ---
+        function openServiceModal(serviceId) {
+            const service = servicesData.find(s => s.id === serviceId);
+            if (!service) return;
+
+            const modalContent = document.getElementById('serviceModalContent');
+            modalContent.innerHTML = `
+                <div class="space-y-6">
+                    <div class="flex items-center space-x-4">
+                        <div class="w-14 h-14 bg-brand-100 text-brand-700 rounded-2xl flex items-center justify-center text-2xl shrink-0">
+                            <i class="fa-solid ${service.icon}"></i>
+                        </div>
+                        <div>
+                            <span class="text-xs font-bold text-brand-600 uppercase tracking-wider">${service.category} Dentistry</span>
+                            <h3 class="text-2xl font-bold text-slate-900">${service.title}</h3>
+                        </div>
+                    </div>
+
+                    <p class="text-slate-600 text-sm leading-relaxed">${service.fullDesc}</p>
+
+                    <div class="grid grid-cols-3 gap-3 bg-slate-50 p-4 rounded-2xl text-center border border-slate-100">
+                        <div>
+                            <span class="text-[10px] text-slate-400 block font-semibold uppercase">Cost Range</span>
+                            <span class="text-xs font-bold text-slate-800">${service.costRange}</span>
+                        </div>
+                        <div>
+                            <span class="text-[10px] text-slate-400 block font-semibold uppercase">Duration</span>
+                            <span class="text-xs font-bold text-slate-800">${service.duration}</span>
+                        </div>
+                        <div>
+                            <span class="text-[10px] text-slate-400 block font-semibold uppercase">Recovery</span>
+                            <span class="text-xs font-bold text-slate-800">${service.recovery}</span>
+                        </div>
+                    </div>
+
+                    <div class="pt-2">
+                        <h4 class="font-bold text-slate-900 text-sm mb-2">Common Patient Question</h4>
+                        ${service.faqs.map(f => `
+                            <div class="bg-brand-50/50 p-3.5 rounded-xl border border-brand-100 text-xs space-y-1">
+                                <div class="font-bold text-slate-800">Q: ${f.q}</div>
+                                <div class="text-slate-600">A: ${f.a}</div>
+                            </div>
+                        `).join('')}
+                    </div>
+
+                    <div class="pt-4 flex gap-3">
+                        <button onclick="closeServiceModal(); openBookingModal();" class="w-full bg-brand-600 hover:bg-brand-700 text-white font-bold py-3 rounded-xl shadow-md text-sm transition">
+                            Book This Procedure Now
+                        </button>
+                    </div>
+                </div>
+            `;
+
+            document.getElementById('serviceModal').classList.remove('hidden');
+        }
+
+        function closeServiceModal() {
+            document.getElementById('serviceModal').classList.add('hidden');
+        }
+
+        // --- BOOKING MODAL STEPS & STATE ---
+        function openBookingModal() {
+            renderTimeSlots();
+            goToBookingStep(1);
+            document.getElementById('bookingModal').classList.remove('hidden');
+            document.getElementById('bookingConfirmation').classList.add('hidden');
+            document.getElementById('bookingForm').classList.remove('hidden');
+        }
+
+        function openBookingWithDoctor(doctorName) {
+            openBookingModal();
+            const radios = document.getElementsByName('doctor');
+            for (let r of radios) {
+                if (r.value.includes(doctorName)) {
+                    r.checked = true;
+                }
+            }
+        }
+
+        function closeBookingModal() {
+            document.getElementById('bookingModal').classList.add('hidden');
+        }
+
+        function goToBookingStep(step) {
+            document.getElementById('bookingStep1').classList.add('hidden');
+            document.getElementById('bookingStep2').classList.add('hidden');
+            document.getElementById('bookingStep3').classList.add('hidden');
+
+            const line = document.getElementById('stepLine');
+            const dot1 = document.getElementById('stepDot1');
+            const dot2 = document.getElementById('stepDot2');
+            const dot3 = document.getElementById('stepDot3');
+
+            if (step === 1) {
+                document.getElementById('bookingStep1').classList.remove('hidden');
+                line.style.width = '0%';
+                dot2.className = 'w-8 h-8 rounded-full bg-slate-200 text-slate-600 font-semibold flex items-center justify-center text-xs';
+                dot3.className = 'w-8 h-8 rounded-full bg-slate-200 text-slate-600 font-semibold flex items-center justify-center text-xs';
+            } else if (step === 2) {
+                const service = document.getElementById('bookService').value;
+                if (!service) {
+                    showToast('Please select a service before proceeding.', 'error');
+                    document.getElementById('bookingStep1').classList.remove('hidden');
+                    return;
+                }
+                document.getElementById('bookingStep2').classList.remove('hidden');
+                line.style.width = '50%';
+                dot2.className = 'w-8 h-8 rounded-full bg-brand-600 text-white font-semibold flex items-center justify-center text-xs shadow-md';
+                dot3.className = 'w-8 h-8 rounded-full bg-slate-200 text-slate-600 font-semibold flex items-center justify-center text-xs';
+            } else if (step === 3) {
+                const date = document.getElementById('bookDate').value;
+                if (!date) {
+                    showToast('Please choose an appointment date.', 'error');
+                    document.getElementById('bookingStep2').classList.remove('hidden');
+                    return;
+                }
+                document.getElementById('bookingStep3').classList.remove('hidden');
+                line.style.width = '100%';
+                dot3.className = 'w-8 h-8 rounded-full bg-brand-600 text-white font-semibold flex items-center justify-center text-xs shadow-md';
+            }
+        }
+
+        function renderTimeSlots() {
+            const slots = ['09:00 AM', '10:00 AM', '11:15 AM', '01:30 PM', '02:45 PM', '04:00 PM', '05:15 PM'];
+            const container = document.getElementById('timeSlotsGrid');
+            if (!container) return;
+
+            container.innerHTML = slots.map((slot, idx) => `
+                <button type="button" onclick="selectSlot('${slot}', this)" class="slot-btn border border-slate-200 rounded-xl py-2 text-xs font-semibold text-slate-700 hover:border-brand-500 transition ${idx === 1 ? 'bg-brand-600 text-white border-brand-600 shadow-sm' : 'bg-slate-50'}">
+                    ${slot}
+                </button>
+            `).join('');
+
+            // Default date to tomorrow
+            const tomorrow = new Date();
+            tomorrow.setDate(tomorrow.getDate() + 1);
+            document.getElementById('bookDate').value = tomorrow.toISOString().split('T')[0];
+        }
+
+        function selectSlot(slot, btn) {
+            selectedTimeSlot = slot;
+            document.querySelectorAll('.slot-btn').forEach(b => {
+                b.className = 'slot-btn border border-slate-200 bg-slate-50 rounded-xl py-2 text-xs font-semibold text-slate-700 hover:border-brand-500 transition';
+            });
+            btn.className = 'slot-btn border border-brand-600 bg-brand-600 text-white rounded-xl py-2 text-xs font-semibold shadow-sm transition';
+        }
+
+        function handleBookingSubmit(event) {
+            event.preventDefault();
+
+            const service = document.getElementById('bookService').value;
+            const doc = document.querySelector('input[name="doctor"]:checked').value;
+            const date = document.getElementById('bookDate').value;
+            const name = document.getElementById('bookName').value;
+
+            document.getElementById('confRef').innerText = '#BS-' + Math.floor(1000 + Math.random() * 9000);
+            document.getElementById('confService').innerText = service;
+            document.getElementById('confDoctor').innerText = doc;
+            document.getElementById('confDateTime').innerText = `${date} at ${selectedTimeSlot}`;
+            document.getElementById('confName').innerText = name;
+
+            document.getElementById('bookingForm').classList.add('hidden');
+            document.getElementById('bookingConfirmation').classList.remove('hidden');
+
+            showToast('Appointment confirmed successfully!');
+        }
+
+        function downloadAppointmentSummary() {
+            showToast('Appointment added to your calendar!');
+        }
+
+        // CALCULATOR ESTIMATOR LOGIC
+        function calculateEstimate() {
+            const procVal = document.getElementById('calcProcedure').value.split('|')[0];
+            const insRatio = parseFloat(document.getElementById('calcInsurance').value);
+
+            const baseCost = parseFloat(procVal);
+            const covered = baseCost * insRatio;
+            const outOfPocket = baseCost - covered;
+
+            document.getElementById('calcBaseCost').innerText = '$' + baseCost.toFixed(2);
+            document.getElementById('calcInsCover').innerText = '-$' + covered.toFixed(2);
+            document.getElementById('calcFinalCost').innerText = '$' + outOfPocket.toFixed(2);
+        }
+
+        // FORM HANDLERS
+        function handleQuickCheckup(e) {
+            e.preventDefault();
+            const name = document.getElementById('quickName').value;
+            showToast(`Thank you ${name}! Our receptionist will call you shortly.`);
+            e.target.reset();
+        }
+
+        function handleContactSubmit(e) {
+            e.preventDefault();
+            showToast('Message sent! Our office manager will contact you within 2 hours.');
+            e.target.reset();
+        }
+
+        // TOAST SYSTEM
+        function showToast(msg, type = 'success') {
+            const toast = document.getElementById('toast');
+            const toastMsg = document.getElementById('toastMsg');
+            const toastIcon = document.getElementById('toastIcon');
+
+            toastMsg.innerText = msg;
+            if (type === 'error') {
+                toastIcon.className = 'fa-solid fa-circle-exclamation text-rose-400 text-lg';
+            } else {
+                toastIcon.className = 'fa-solid fa-circle-check text-emerald-400 text-lg';
+            }
+
+            toast.classList.remove('translate-y-20', 'opacity-0');
+            toast.classList.add('translate-y-0', 'opacity-100');
+
+            setTimeout(() => {
+                toast.classList.remove('translate-y-0', 'opacity-100');
+                toast.classList.add('translate-y-20', 'opacity-0');
+            }, 3500);
+        }
+    </script>
+</body>
+</html>
